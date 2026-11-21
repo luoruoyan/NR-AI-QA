@@ -1,0 +1,198 @@
+{
+  "format_version": 1,
+  "source": "offline_fixture",
+  "prompt_version": "nrqa-stage3-v1",
+  "responses": [
+    {
+      "purpose": "coverage",
+      "suite": "pusch",
+      "response": {
+        "advice": [
+          {
+            "topic_id": "PUSCH-MCS-PRB",
+            "requirement_ids": [
+              "NR-PUSCH-MCS-TBS"
+            ],
+            "reason": "interaction"
+          },
+          {
+            "topic_id": "PUSCH-DMRS",
+            "requirement_ids": [
+              "NR-PUSCH-MAPPING"
+            ],
+            "reason": "interaction"
+          }
+        ]
+      }
+    },
+    {
+      "purpose": "generation",
+      "suite": "pusch",
+      "response": {
+        "candidates": [
+          {
+            "case": {
+              "case_id": "AI-REPLAY-PUSCH-1",
+              "requirement_ids": [
+                "NR-PUSCH-MCS-TBS"
+              ],
+              "kind": "pusch",
+              "test_type": "golden",
+              "mcs": 4,
+              "num_prbs": 32,
+              "num_symbols": 12,
+              "dmrs_config": {
+                "scrambling_id": 41
+              },
+              "channel_type": "awgn",
+              "snr_db": 30.0,
+              "seed": 739031,
+              "num_transport_blocks": 3,
+              "risk_tags": [
+                "PUSCH-MCS-PRB"
+              ],
+              "tb_size": 2536
+            },
+            "parent_case_id": "P04-PRB",
+            "related_requirements": [
+              "NR-PUSCH-MCS-TBS"
+            ],
+            "risk_tags": [
+              "PUSCH-MCS-PRB"
+            ],
+            "risk_reason": "interaction"
+          },
+          {
+            "case": {
+              "case_id": "AI-REPLAY-PUSCH-2",
+              "requirement_ids": [
+                "NR-PUSCH-MAPPING"
+              ],
+              "kind": "pusch",
+              "test_type": "golden",
+              "mcs": 2,
+              "num_prbs": 273,
+              "num_symbols": 12,
+              "dmrs_config": {
+                "scrambling_id": 42
+              },
+              "channel_type": "awgn",
+              "snr_db": 30.0,
+              "seed": 739032,
+              "num_transport_blocks": 3,
+              "risk_tags": [
+                "PUSCH-DMRS"
+              ],
+              "tb_size": 13576,
+              "num_rx_ant": 1
+            },
+            "parent_case_id": "P04-DMRS",
+            "related_requirements": [
+              "NR-PUSCH-MAPPING"
+            ],
+            "risk_tags": [
+              "PUSCH-DMRS"
+            ],
+            "risk_reason": "interaction"
+          },
+          {
+            "case": {
+              "case_id": "AI-REPLAY-PUSCH-REJECT",
+              "requirement_ids": [
+                "NR-PUSCH-MCS-TBS"
+              ],
+              "kind": "pusch",
+              "test_type": "golden",
+              "mcs": 4,
+              "num_prbs": 32,
+              "num_symbols": 12,
+              "dmrs_config": {
+                "scrambling_id": 41
+              },
+              "channel_type": "awgn",
+              "snr_db": 30.0,
+              "seed": 739031,
+              "num_transport_blocks": 3,
+              "risk_tags": [
+                "PUSCH-MCS-PRB"
+              ],
+              "tb_size": 2544
+            },
+            "parent_case_id": "P04-PRB",
+            "related_requirements": [
+              "NR-PUSCH-MCS-TBS"
+            ],
+            "risk_tags": [
+              "PUSCH-MCS-PRB"
+            ],
+            "risk_reason": "interaction"
+          }
+        ]
+      }
+    },
+    {
+      "purpose": "triage",
+      "suite": "pusch",
+      "response": {
+        "assessments": [
+          {
+            "case_id": "P05-DMRS-FAULT",
+            "hypothesis_ids": [
+              "DMRS_MISMATCH"
+            ],
+            "evidence_ids": [
+              "EV-OBSERVATION",
+              "EV-STATUS"
+            ],
+            "investigation_ids": [
+              "CHECK_DMRS_ID_PAIR"
+            ],
+            "regression_case_ids": [
+              "P05-DMRS-FAULT",
+              "P04-DMRS",
+              "P01-GOLDEN"
+            ],
+            "confidence": "medium"
+          },
+          {
+            "case_id": "P05-NOISE-FAULT",
+            "hypothesis_ids": [
+              "LLR_SCALING"
+            ],
+            "evidence_ids": [
+              "EV-OBSERVATION",
+              "EV-STATUS"
+            ],
+            "investigation_ids": [
+              "PAIR_CLEAN_LLR"
+            ],
+            "regression_case_ids": [
+              "P05-NOISE-FAULT",
+              "P02-CONSISTENCY",
+              "P03-MID"
+            ],
+            "confidence": "medium"
+          },
+          {
+            "case_id": "P03-SMOKE-LOW",
+            "hypothesis_ids": [
+              "LOW_SNR_CHANNEL"
+            ],
+            "evidence_ids": [
+              "EV-OBSERVATION",
+              "EV-STATUS"
+            ],
+            "investigation_ids": [
+              "RECHECK_WILSON_INTERVAL"
+            ],
+            "regression_case_ids": [
+              "P03-MID",
+              "P01-GOLDEN"
+            ],
+            "confidence": "medium"
+          }
+        ]
+      }
+    }
+  ]
+}

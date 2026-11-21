@@ -1,0 +1,16 @@
+{
+  "kind": "pusch",
+  "case_id": "P01-JSON",
+  "requirement_ids": ["NR-PUSCH-MAPPING", "NR-PUSCH-ULSCH", "NR-PUSCH-MCS-TBS", "SDK-PUSCH-IO"],
+  "test_type": "golden",
+  "mcs": 2,
+  "tb_size": 13576,
+  "num_prbs": 273,
+  "num_symbols": 12,
+  "dmrs_config": {"scrambling_id": 41},
+  "channel_type": "awgn",
+  "snr_db": 30.0,
+  "seed": 220601,
+  "num_transport_blocks": 1,
+  "risk_tags": ["golden"]
+}

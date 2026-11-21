@@ -1,0 +1,41 @@
+# Vendor SDK, binaries, credentials and local experiments
+/sdk/
+/reports/
+/logs/
+/exports/
+/specs/references/
+*.npz
+*.npy
+*.iq
+*.pdf
+*.so
+*.o
+*.a
+*.whl
+*.deb
+/.streamlit/secrets.toml
+.env
+.env.*
+*.key
+*.pem
+credentials*.json
+
+# Local environments and caches
+/environment/*
+!/environment/requirements-stage3.txt
+/.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+
+# Private operational documentation and a probe pending redistribution review
+/docs/aerial_deployment_report.md
+/docs/ai_architecture.md
+/docs/bg_boundary_investigation.md
+/docs/pusch_api_audit.md
+/docs/stage[123]_*.md
+/tests/pusch/bg_boundary_probe.py

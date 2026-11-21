@@ -1,0 +1,2 @@
+# Install into the project's /qa-deps mount with the official container's Python.
+pydantic==2.11.10

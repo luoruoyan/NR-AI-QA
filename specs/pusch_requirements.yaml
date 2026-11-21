@@ -1,0 +1,83 @@
+references:
+  TS 38.211: {version: V17.10.0, pdf: references/ts_138211v171000p.pdf}
+  TS 38.212: {version: V17.13.0, pdf: references/ts_138212v171300p.pdf}
+  TS 38.214: {version: V17.13.0, pdf: references/ts_138214v171300p.pdf}
+  TR 38.901: {version: V17.1.0, pdf: references/tr_138901v170100p.pdf}
+requirements:
+  - requirement_id: NR-PUSCH-MAPPING
+    category: 3GPP_REQUIREMENT
+    specification: TS 38.211
+    version: V17.10.0
+    clause: "§6.3.1.1–6 and §6.4.1.1.1–3"
+    preconditions: Single layer, transform precoding disabled, mapping type A, normal CP
+    parameter_domain: [QPSK, contiguous PRBs, single type-1 DMRS at symbol 2, two CDM groups without data]
+    expected_behavior: Data uses the scheduled RE excluding reserved DMRS RE in this profile
+    oracle_type: RESOURCE_GEOMETRY_AND_LOOPBACK
+    coverage: implemented
+    test_case_ids: [P01-GOLDEN, P04-PRB, P04-DMRS]
+  - requirement_id: NR-PUSCH-ULSCH
+    category: 3GPP_REQUIREMENT
+    specification: TS 38.212
+    version: V17.13.0
+    clause: "§6.2.1–7"
+    preconditions: One UL-SCH TB, no UCI, initial transmission
+    parameter_domain: [RV0, one codeword, positive scheduled TBS]
+    expected_behavior: UL-SCH CRC, segmentation, LDPC coding and rate matching support recovery of the original TB
+    oracle_type: PAYLOAD_AND_CRC_ROUND_TRIP
+    coverage: implemented
+    test_case_ids: [P01-GOLDEN, P02-CONSISTENCY, P04-MCS]
+  - requirement_id: NR-PUSCH-MCS-TBS
+    category: 3GPP_REQUIREMENT
+    specification: TS 38.214
+    version: V17.13.0
+    clause: "§6.1.4.1–2, Table 5.1.3.1-1 and §5.1.3.2 as referenced from §6.1.4"
+    preconditions: MCS table 1, no higher-layer TBS overhead, one layer
+    parameter_domain: [MCS 0–9, 1–273 PRBs, 12 allocated symbols, 132 data RE per PRB]
+    expected_behavior: Qm, R and TBS agree with independently evaluated table and quantization
+    oracle_type: SPEC_TABLE_AND_TBS_CALCULATION
+    coverage: implemented
+    test_case_ids: [P01-GOLDEN, P04-MCS, P04-PRB, P04-BAD-TBS]
+  - requirement_id: SDK-PUSCH-IO
+    category: SDK_INTERFACE_CONTRACT
+    specification: NVIDIA pyAerial
+    version: 26-2
+    clause: PuschRxPipeline and SeparablePuschRx
+    preconditions: Same IQ and receiver configuration
+    parameter_domain: [complex64 frequency grid, packed uint8 TB, uint32 CRC status]
+    expected_behavior: Sized outputs, matching decoded bits and CRC at the golden operating point, invalid IQ shape rejected by QA
+    oracle_type: BIT_EXACT_AND_SHAPE
+    coverage: implemented
+    test_case_ids: [P01-GOLDEN, P02-CONSISTENCY, P04-SISO, P04-BAD-IQ]
+  - requirement_id: MODEL-PUSCH-AWGN
+    category: TEST_ASSUMPTION
+    specification: NR-AI-QA Stage 2
+    version: "1"
+    clause: Frequency-domain AWGN and repeatability
+    preconditions: Unity gain per receive branch and fixed seed
+    parameter_domain: [measured data-RE SNR, per-branch complex AWGN]
+    expected_behavior: Estimate payload BLER, CRC failures and BER with declared sample size
+    oracle_type: STATISTICAL_WILSON_95
+    coverage: implemented
+    test_case_ids: [P03-SMOKE-LOW, P03-SMOKE-MID, P03-SMOKE-HIGH, P03-LOW, P03-MID, P03-HIGH]
+  - requirement_id: MODEL-PUSCH-FAULTS
+    category: TEST_ASSUMPTION
+    specification: NR-AI-QA Stage 2
+    version: "1"
+    clause: Paired receiver input perturbations
+    preconditions: Identical IQ and nominal configuration except for one receiver-side field
+    parameter_domain: [DMRS scrambling ID mismatch, pre-equalization noise dB bias]
+    expected_behavior: Repeated paired payload/CRC or active LLR deviations
+    oracle_type: PAIRED_OUTPUT_DIFFERENCE
+    coverage: implemented
+    test_case_ids: [P05-DMRS-FAULT, P05-NOISE-FAULT]
+  - requirement_id: MODEL-PUSCH-TDL
+    category: TEST_ASSUMPTION
+    specification: TR 38.901
+    version: V17.1.0
+    clause: "§7.7.2–3"
+    preconditions: TDL profile and RMS delay spread declared
+    parameter_domain: [TDL-A, TDL-B, TDL-C, TDL-D, TDL-E]
+    expected_behavior: TDL taps and delay scaling require separate validation
+    oracle_type: PENDING
+    coverage: pending
+    test_case_ids: []

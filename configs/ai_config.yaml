@@ -1,0 +1,32 @@
+prompt_version: nrqa-stage3-v1
+live_prompt_version: nrqa-stage3-v2
+llm:
+  timeout_seconds: 20
+  max_retries: 2
+  temperature: 0
+  send_temperature: true
+  max_completion_tokens: 1000
+  max_total_tokens: 160000
+  max_cost_usd: null
+  input_usd_per_million: null
+  output_usd_per_million: null
+budget:
+  max_cases: 4
+  max_generated_tb: 8
+  max_tb_per_case: 96
+  max_regression_cases: 7
+  estimated_gpu_seconds: 65
+  wall_seconds: 120
+topics:
+  LDPC-BG: {family: ldpc, module: base_graph, requirement_ids: [R-BG], cases: [BG-A288, BG-A304, BG-A3824, BG-A3840, BG-R067], boundary: 1.0, interaction: 0.7, axis: boundary}
+  LDPC-SEG: {family: ldpc, module: segmentation, requirement_ids: [R-SEG], cases: [SEG-BG1-ONE, SEG-BG1-TWO, SEG-BG2-ONE, SEG-BG2-TWO, SEG-BG2-FOUR], boundary: 1.0, interaction: 0.8, axis: boundary}
+  LDPC-RM: {family: ldpc, module: rate_matching, requirement_ids: [R-RM], cases: [RV-BG2-REPEAT, FAULT-RM-FLIP], boundary: 0.8, interaction: 1.0, axis: boundary}
+  LDPC-RV: {family: ldpc, module: rv, requirement_ids: [R-RV], cases: [RV-BG1-0, RV-BG1-1, RV-BG1-2, RV-BG1-3, RV-BG2-0, RV-BG2-1, RV-BG2-2, RV-BG2-3], boundary: 1.0, interaction: 0.8, axis: boundary}
+  LDPC-CRC: {family: ldpc, module: crc_bit_order, requirement_ids: [R-CRC, R-MOD], cases: [GOLD-QPSK, GOLD-BG1, FAULT-CRC-FLIP], boundary: 0.9, interaction: 0.7, axis: supported_scenario}
+  PUSCH-MCS: {family: pusch, module: mcs, requirement_ids: [NR-PUSCH-MCS-TBS], cases: [P01-GOLDEN, P04-MCS], boundary: 0.8, interaction: 0.9, axis: boundary}
+  PUSCH-PRB: {family: pusch, module: prb, requirement_ids: [NR-PUSCH-MAPPING, NR-PUSCH-MCS-TBS], cases: [P04-PRB, P01-GOLDEN, P04-BAD-TBS], boundary: 1.0, interaction: 0.9, axis: boundary}
+  PUSCH-DMRS: {family: pusch, module: dmrs, requirement_ids: [NR-PUSCH-MAPPING, MODEL-PUSCH-FAULTS], cases: [P04-DMRS, P05-DMRS-FAULT], boundary: 0.9, interaction: 1.0, axis: boundary}
+  PUSCH-NOISE: {family: pusch, module: noise_variance, requirement_ids: [MODEL-PUSCH-AWGN, MODEL-PUSCH-FAULTS], cases: [P05-NOISE-FAULT, P03-MID, P03-HIGH], boundary: 0.8, interaction: 1.0, axis: supported_scenario}
+  PUSCH-RECEIVERS: {family: pusch, module: receivers, requirement_ids: [SDK-PUSCH-IO], cases: [P01-GOLDEN, P02-CONSISTENCY, P04-SISO, P04-BAD-IQ], boundary: 0.7, interaction: 0.9, axis: supported_scenario}
+  PUSCH-MCS-PRB: {family: pusch, module: mcs_prb, requirement_ids: [NR-PUSCH-MCS-TBS], cases: [], parameters: {mcs: 4, num_prbs: 32}, boundary: 0.9, interaction: 1.0, axis: supported_scenario}
+  PUSCH-TDL: {family: pusch, module: tdl, requirement_ids: [MODEL-PUSCH-TDL], cases: [], state: UNSUPPORTED, boundary: 0, interaction: 0, axis: supported_scenario}

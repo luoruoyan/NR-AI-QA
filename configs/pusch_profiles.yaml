@@ -1,0 +1,29 @@
+defaults:
+  kind: pusch
+  test_type: golden
+  mcs: 2
+  num_prbs: 273
+  num_symbols: 12
+  dmrs_config: {scrambling_id: 41}
+  channel_type: awgn
+  snr_db: 30.0
+  seed: 220601
+  num_transport_blocks: 1
+  risk_tags: []
+cases:
+  P01-GOLDEN: {}
+  P02-CONSISTENCY: {test_type: consistency, num_transport_blocks: 3}
+  P03-SMOKE-LOW: {test_type: awgn, snr_db: -11.0, num_transport_blocks: 6}
+  P03-SMOKE-MID: {test_type: awgn, snr_db: -7.0, num_transport_blocks: 6}
+  P03-SMOKE-HIGH: {test_type: awgn, snr_db: -3.0, num_transport_blocks: 6}
+  P03-LOW: {test_type: awgn, snr_db: -7.0, num_transport_blocks: 64}
+  P03-MID: {test_type: awgn, snr_db: -5.5, num_transport_blocks: 64}
+  P03-HIGH: {test_type: awgn, snr_db: -3.0, num_transport_blocks: 64}
+  P04-MCS: {mcs: 4, num_transport_blocks: 3}
+  P04-PRB: {num_prbs: 32, num_transport_blocks: 3}
+  P04-DMRS: {dmrs_config: {scrambling_id: 42}, num_transport_blocks: 3}
+  P04-SISO: {num_rx_ant: 1, num_transport_blocks: 3}
+  P04-BAD-TBS: {test_type: config_contract}
+  P04-BAD-IQ: {test_type: iq_contract}
+  P05-DMRS-FAULT: {test_type: dmrs_fault, snr_db: 20.0, seed: 520601, num_transport_blocks: 8}
+  P05-NOISE-FAULT: {test_type: noise_fault, snr_db: 20.0, seed: 520602, num_transport_blocks: 8}

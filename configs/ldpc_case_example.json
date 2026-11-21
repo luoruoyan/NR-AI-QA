@@ -1,0 +1,21 @@
+{
+  "case_id": "JSON-GOLD-001",
+  "requirement_ids": [
+    "R-CRC",
+    "R-BG",
+    "R-SEG",
+    "R-LDPC",
+    "R-RM",
+    "R-MCS-TBS",
+    "R-MOD",
+    "SDK-CHAIN"
+  ],
+  "test_type": "golden",
+  "tb_size": 288,
+  "seed": 18212,
+  "expected_behavior": "round_trip",
+  "mcs": 5,
+  "num_prbs": 4,
+  "data_re_per_prb": 96,
+  "code_rate": 0.3701171875
+}

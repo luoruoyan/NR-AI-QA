@@ -1,0 +1,330 @@
+cases:
+  - case_id: "GOLD-QPSK"
+    requirement_ids: ["R-CRC", "R-BG", "R-SEG", "R-LDPC", "R-RM", "R-MCS-TBS", "R-MOD", "SDK-CHAIN"]
+    test_type: "golden"
+    tb_size: 288
+    seed: 18212
+    expected_behavior: "round_trip"
+    mcs: 5
+    num_prbs: 4
+    data_re_per_prb: 96
+    code_rate: 0.3701171875
+  - case_id: "GOLD-BG1"
+    requirement_ids: ["R-CRC", "R-BG", "R-SEG", "R-LDPC", "R-RM", "R-MCS-TBS", "R-MOD", "SDK-CHAIN"]
+    test_type: "golden"
+    tb_size: 3840
+    seed: 18212
+    expected_behavior: "round_trip"
+    mcs: 10
+    num_prbs: 27
+    data_re_per_prb: 108
+    code_rate: 0.33203125
+  - case_id: "BG-A288"
+    requirement_ids: ["R-CRC", "R-BG", "R-LDPC", "R-MCS-TBS", "SDK-CHAIN", "R-MOD"]
+    test_type: "boundary"
+    tb_size: 288
+    seed: 18212
+    expected_behavior: "round_trip"
+    mcs: 25
+    num_prbs: 1
+    data_re_per_prb: 60
+    code_rate: 0.802734375
+  - case_id: "BG-A304"
+    requirement_ids: ["R-CRC", "R-BG", "R-LDPC", "R-MCS-TBS", "SDK-CHAIN", "R-MOD"]
+    test_type: "boundary"
+    tb_size: 304
+    seed: 18212
+    expected_behavior: "round_trip"
+    mcs: 23
+    num_prbs: 1
+    data_re_per_prb: 72
+    code_rate: 0.7021484375
+  - case_id: "BG-A3824"
+    requirement_ids: ["R-CRC", "R-BG", "R-LDPC", "R-MCS-TBS", "SDK-CHAIN"]
+    test_type: "boundary"
+    tb_size: 3824
+    seed: 18212
+    expected_behavior: "round_trip"
+    mcs: 4
+    num_prbs: 66
+    data_re_per_prb: 96
+    code_rate: 0.30078125
+  - case_id: "BG-A3840"
+    requirement_ids: ["R-CRC", "R-BG", "R-LDPC", "R-MCS-TBS", "SDK-CHAIN"]
+    test_type: "boundary"
+    tb_size: 3840
+    seed: 18212
+    expected_behavior: "round_trip"
+    mcs: 4
+    num_prbs: 59
+    data_re_per_prb: 108
+    code_rate: 0.30078125
+  - case_id: "BG-RLOW"
+    requirement_ids: ["R-CRC", "R-BG", "R-LDPC", "R-MCS-TBS", "SDK-CHAIN"]
+    test_type: "boundary"
+    tb_size: 3848
+    seed: 18212
+    expected_behavior: "round_trip"
+    mcs: 3
+    num_prbs: 73
+    data_re_per_prb: 108
+    code_rate: 0.2451171875
+  - case_id: "BG-RHIGH"
+    requirement_ids: ["R-CRC", "R-BG", "R-LDPC", "R-MCS-TBS", "SDK-CHAIN"]
+    test_type: "boundary"
+    tb_size: 3840
+    seed: 18212
+    expected_behavior: "round_trip"
+    mcs: 4
+    num_prbs: 59
+    data_re_per_prb: 108
+    code_rate: 0.30078125
+  - case_id: "BG-R25"
+    requirement_ids: ["R-CRC", "R-BG", "R-LDPC", "SDK-CHAIN"]
+    test_type: "bg_probe"
+    tb_size: 3848
+    seed: 18212
+    expected_behavior: "geometry"
+    code_rate: 0.25
+    risk_tags: ["component-probe"]
+  - case_id: "BG-R067"
+    requirement_ids: ["R-CRC", "R-BG", "R-LDPC", "SDK-CHAIN"]
+    test_type: "bg_probe"
+    tb_size: 3824
+    seed: 18212
+    expected_behavior: "geometry"
+    code_rate: 0.67
+    risk_tags: ["component-probe", "sdk-helper-threshold"]
+  - case_id: "BG-R067-ABOVE"
+    requirement_ids: ["R-CRC", "R-BG", "R-LDPC", "SDK-CHAIN"]
+    test_type: "bg_probe"
+    tb_size: 3824
+    seed: 18212
+    expected_behavior: "geometry"
+    code_rate: 0.671
+    risk_tags: ["component-probe"]
+  - case_id: "SEG-BG2-ONE"
+    requirement_ids: ["R-CRC", "R-BG", "R-SEG", "R-LDPC", "R-RM", "R-CONCAT", "R-MCS-TBS", "SDK-CHAIN"]
+    test_type: "segmentation"
+    tb_size: 3824
+    seed: 18212
+    expected_behavior: "round_trip"
+    mcs: 3
+    num_prbs: 72
+    data_re_per_prb: 108
+    code_rate: 0.2451171875
+  - case_id: "SEG-BG2-TWO"
+    requirement_ids: ["R-CRC", "R-BG", "R-SEG", "R-LDPC", "R-RM", "R-CONCAT", "R-MCS-TBS", "SDK-CHAIN"]
+    test_type: "segmentation"
+    tb_size: 3848
+    seed: 18212
+    expected_behavior: "round_trip"
+    mcs: 3
+    num_prbs: 73
+    data_re_per_prb: 108
+    code_rate: 0.2451171875
+  - case_id: "SEG-BG1-ONE"
+    requirement_ids: ["R-CRC", "R-BG", "R-SEG", "R-LDPC", "R-RM", "R-CONCAT", "R-MCS-TBS", "SDK-CHAIN"]
+    test_type: "segmentation"
+    tb_size: 8192
+    seed: 18212
+    expected_behavior: "round_trip"
+    mcs: 5
+    num_prbs: 102
+    data_re_per_prb: 108
+    code_rate: 0.3701171875
+  - case_id: "SEG-BG1-TWO"
+    requirement_ids: ["R-CRC", "R-BG", "R-SEG", "R-LDPC", "R-RM", "R-CONCAT", "R-MCS-TBS", "SDK-CHAIN"]
+    test_type: "segmentation"
+    tb_size: 8456
+    seed: 18212
+    expected_behavior: "round_trip"
+    mcs: 5
+    num_prbs: 105
+    data_re_per_prb: 108
+    code_rate: 0.3701171875
+  - case_id: "RV-BG1-0"
+    requirement_ids: ["R-CRC", "R-RM", "R-RV", "R-CONCAT", "R-MCS-TBS", "R-MOD", "SDK-CHAIN"]
+    test_type: "rv"
+    tb_size: 8456
+    seed: 18212
+    expected_behavior: "round_trip"
+    rv: 0
+    mcs: 5
+    num_prbs: 105
+    data_re_per_prb: 108
+    code_rate: 0.3701171875
+  - case_id: "RV-BG1-1"
+    requirement_ids: ["R-CRC", "R-RM", "R-RV", "R-CONCAT", "R-MCS-TBS", "R-MOD", "SDK-CHAIN"]
+    test_type: "rv"
+    tb_size: 8456
+    seed: 18212
+    expected_behavior: "round_trip"
+    rv: 1
+    mcs: 5
+    num_prbs: 105
+    data_re_per_prb: 108
+    code_rate: 0.3701171875
+  - case_id: "RV-BG1-2"
+    requirement_ids: ["R-CRC", "R-RM", "R-RV", "R-CONCAT", "R-MCS-TBS", "R-MOD", "SDK-CHAIN"]
+    test_type: "rv"
+    tb_size: 8456
+    seed: 18212
+    expected_behavior: "round_trip"
+    rv: 2
+    mcs: 5
+    num_prbs: 105
+    data_re_per_prb: 108
+    code_rate: 0.3701171875
+  - case_id: "RV-BG1-3"
+    requirement_ids: ["R-CRC", "R-RM", "R-RV", "R-CONCAT", "R-MCS-TBS", "R-MOD", "SDK-CHAIN"]
+    test_type: "rv"
+    tb_size: 8456
+    seed: 18212
+    expected_behavior: "round_trip"
+    rv: 3
+    mcs: 5
+    num_prbs: 105
+    data_re_per_prb: 108
+    code_rate: 0.3701171875
+  - case_id: "RV-BG2-0"
+    requirement_ids: ["R-CRC", "R-RM", "R-RV", "R-CONCAT", "R-MCS-TBS", "R-MOD", "SDK-CHAIN"]
+    test_type: "rv"
+    tb_size: 3848
+    seed: 18212
+    expected_behavior: "round_trip"
+    rv: 0
+    mcs: 3
+    num_prbs: 73
+    data_re_per_prb: 108
+    code_rate: 0.2451171875
+  - case_id: "RV-BG2-1"
+    requirement_ids: ["R-CRC", "R-RM", "R-RV", "R-CONCAT", "R-MCS-TBS", "R-MOD", "SDK-CHAIN"]
+    test_type: "rv"
+    tb_size: 3848
+    seed: 18212
+    expected_behavior: "round_trip"
+    rv: 1
+    mcs: 3
+    num_prbs: 73
+    data_re_per_prb: 108
+    code_rate: 0.2451171875
+  - case_id: "RV-BG2-2"
+    requirement_ids: ["R-CRC", "R-RM", "R-RV", "R-CONCAT", "R-MCS-TBS", "R-MOD", "SDK-CHAIN"]
+    test_type: "rv"
+    tb_size: 3848
+    seed: 18212
+    expected_behavior: "round_trip"
+    rv: 2
+    mcs: 3
+    num_prbs: 73
+    data_re_per_prb: 108
+    code_rate: 0.2451171875
+  - case_id: "RV-BG2-3"
+    requirement_ids: ["R-CRC", "R-RM", "R-RV", "R-CONCAT", "R-MCS-TBS", "R-MOD", "SDK-CHAIN"]
+    test_type: "rv"
+    tb_size: 3848
+    seed: 18212
+    expected_behavior: "round_trip"
+    rv: 3
+    mcs: 3
+    num_prbs: 73
+    data_re_per_prb: 108
+    code_rate: 0.2451171875
+  - case_id: "AWGN-SMOKE"
+    requirement_ids: ["R-CRC", "R-MCS-TBS", "R-MOD", "SDK-CHAIN", "QA-AWGN"]
+    test_type: "awgn"
+    tb_size: 288
+    seed: 18212
+    expected_behavior: "measure"
+    channel_type: "awgn"
+    esno_db: 0.0
+    samples: 8
+    mcs: 5
+    num_prbs: 4
+    data_re_per_prb: 96
+    code_rate: 0.3701171875
+  - case_id: "AWGN-LOW"
+    requirement_ids: ["R-CRC", "R-MCS-TBS", "R-MOD", "SDK-CHAIN", "QA-AWGN"]
+    test_type: "awgn"
+    tb_size: 288
+    seed: 18212
+    expected_behavior: "measure"
+    channel_type: "awgn"
+    esno_db: -4.0
+    samples: 96
+    mcs: 5
+    num_prbs: 4
+    data_re_per_prb: 96
+    code_rate: 0.3701171875
+  - case_id: "AWGN-MID"
+    requirement_ids: ["R-CRC", "R-MCS-TBS", "R-MOD", "SDK-CHAIN", "QA-AWGN"]
+    test_type: "awgn"
+    tb_size: 288
+    seed: 18212
+    expected_behavior: "measure"
+    channel_type: "awgn"
+    esno_db: 0.0
+    samples: 96
+    mcs: 5
+    num_prbs: 4
+    data_re_per_prb: 96
+    code_rate: 0.3701171875
+  - case_id: "AWGN-HIGH"
+    requirement_ids: ["R-CRC", "R-MCS-TBS", "R-MOD", "SDK-CHAIN", "QA-AWGN"]
+    test_type: "awgn"
+    tb_size: 288
+    seed: 18212
+    expected_behavior: "measure"
+    channel_type: "awgn"
+    esno_db: 4.0
+    samples: 96
+    mcs: 5
+    num_prbs: 4
+    data_re_per_prb: 96
+    code_rate: 0.3701171875
+  - case_id: "FAULT-RM-FLIP"
+    requirement_ids: ["R-CRC", "R-RM", "R-MCS-TBS", "SDK-CHAIN", "QA-FAULT"]
+    test_type: "fault"
+    tb_size: 288
+    seed: 18212
+    expected_behavior: "detect"
+    fault: "rm_bit_flip"
+    mcs: 5
+    num_prbs: 4
+    data_re_per_prb: 96
+    code_rate: 0.3701171875
+  - case_id: "FAULT-CRC-FLIP"
+    requirement_ids: ["R-CRC", "R-RM", "R-MCS-TBS", "SDK-CHAIN", "QA-FAULT"]
+    test_type: "fault"
+    tb_size: 288
+    seed: 18212
+    expected_behavior: "detect"
+    fault: "pre_crc_bit_flip"
+    mcs: 5
+    num_prbs: 4
+    data_re_per_prb: 96
+    code_rate: 0.3701171875
+  - case_id: "SEG-BG2-FOUR"
+    requirement_ids: ["R-CRC", "R-BG", "R-SEG", "R-LDPC", "R-RM", "R-CONCAT", "R-MCS-TBS", "SDK-CHAIN"]
+    test_type: "segmentation"
+    tb_size: 11528
+    mcs: 3
+    code_rate: 0.2451171875
+    seed: 18212
+    num_prbs: 205
+    data_re_per_prb: 114
+    expected_behavior: "round_trip"
+    risk_tags: ["unequal-e-r"]
+  - case_id: "RV-BG2-REPEAT"
+    test_type: "rv"
+    requirement_ids: ["R-CRC", "R-RM", "R-RV", "R-CONCAT", "R-MCS-TBS", "R-MOD", "SDK-CHAIN"]
+    tb_size: 3848
+    num_prbs: 86
+    data_re_per_prb: 120
+    mcs: 2
+    code_rate: 0.1884765625
+    rv: 3
+    seed: 18212
+    expected_behavior: "round_trip"
+    risk_tags: ["circular-repeat"]

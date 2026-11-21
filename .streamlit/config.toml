@@ -1,0 +1,21 @@
+[global]
+developmentMode = false
+
+[client]
+toolbarMode = "minimal"
+
+[browser]
+gatherUsageStats = false
+
+[server]
+address = "127.0.0.1"
+headless = true
+fileWatcherType = "none"
+
+[theme]
+base = "light"
+primaryColor = "#245EEA"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F0F4FA"
+textColor = "#142238"
+font = "sans serif"

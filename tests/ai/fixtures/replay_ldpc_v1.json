@@ -1,0 +1,184 @@
+{
+  "format_version": 1,
+  "source": "offline_fixture",
+  "prompt_version": "nrqa-stage3-v1",
+  "responses": [
+    {
+      "purpose": "coverage",
+      "suite": "ldpc",
+      "response": {
+        "advice": [
+          {
+            "topic_id": "LDPC-RV",
+            "requirement_ids": [
+              "R-RV"
+            ],
+            "reason": "seed_variation"
+          },
+          {
+            "topic_id": "LDPC-SEG",
+            "requirement_ids": [
+              "R-SEG"
+            ],
+            "reason": "seed_variation"
+          }
+        ]
+      }
+    },
+    {
+      "purpose": "generation",
+      "suite": "ldpc",
+      "response": {
+        "candidates": [
+          {
+            "case": {
+              "case_id": "AI-REPLAY-LDPC-1",
+              "requirement_ids": [
+                "R-RV"
+              ],
+              "test_type": "rv",
+              "tb_size": 8456,
+              "seed": 739031,
+              "expected_behavior": "round_trip",
+              "rv": 3,
+              "mcs": 5,
+              "num_prbs": 105,
+              "data_re_per_prb": 108,
+              "code_rate": 0.3701171875,
+              "risk_tags": [
+                "LDPC-RV"
+              ]
+            },
+            "parent_case_id": "RV-BG1-3",
+            "related_requirements": [
+              "R-RV"
+            ],
+            "risk_tags": [
+              "LDPC-RV"
+            ],
+            "risk_reason": "seed_variation"
+          },
+          {
+            "case": {
+              "case_id": "AI-REPLAY-LDPC-2",
+              "requirement_ids": [
+                "R-SEG"
+              ],
+              "test_type": "segmentation",
+              "tb_size": 11528,
+              "mcs": 3,
+              "code_rate": 0.2451171875,
+              "seed": 739032,
+              "num_prbs": 205,
+              "data_re_per_prb": 114,
+              "expected_behavior": "round_trip",
+              "risk_tags": [
+                "LDPC-SEG"
+              ]
+            },
+            "parent_case_id": "SEG-BG2-FOUR",
+            "related_requirements": [
+              "R-SEG"
+            ],
+            "risk_tags": [
+              "LDPC-SEG"
+            ],
+            "risk_reason": "seed_variation"
+          },
+          {
+            "case": {
+              "case_id": "AI-REPLAY-LDPC-REJECT",
+              "requirement_ids": [
+                "R-RV"
+              ],
+              "test_type": "rv",
+              "tb_size": 8456,
+              "seed": 739031,
+              "expected_behavior": "round_trip",
+              "rv": 4,
+              "mcs": 5,
+              "num_prbs": 105,
+              "data_re_per_prb": 108,
+              "code_rate": 0.3701171875,
+              "risk_tags": [
+                "LDPC-RV"
+              ]
+            },
+            "parent_case_id": "RV-BG1-3",
+            "related_requirements": [
+              "R-RV"
+            ],
+            "risk_tags": [
+              "LDPC-RV"
+            ],
+            "risk_reason": "seed_variation"
+          }
+        ]
+      }
+    },
+    {
+      "purpose": "triage",
+      "suite": "ldpc",
+      "response": {
+        "assessments": [
+          {
+            "case_id": "BG-R067",
+            "hypothesis_ids": [
+              "BG_THRESHOLD"
+            ],
+            "evidence_ids": [
+              "EV-OBSERVATION",
+              "EV-STATUS"
+            ],
+            "investigation_ids": [
+              "TRACE_RATE_CONVERSION"
+            ],
+            "regression_case_ids": [
+              "BG-R067",
+              "BG-A3824",
+              "GOLD-QPSK"
+            ],
+            "confidence": "medium"
+          },
+          {
+            "case_id": "FAULT-RM-FLIP",
+            "hypothesis_ids": [
+              "RM_BIT_INJECTION"
+            ],
+            "evidence_ids": [
+              "EV-OBSERVATION",
+              "EV-STATUS"
+            ],
+            "investigation_ids": [
+              "COMPARE_RM_BEFORE_DECODER"
+            ],
+            "regression_case_ids": [
+              "FAULT-RM-FLIP",
+              "RV-BG2-REPEAT",
+              "GOLD-QPSK"
+            ],
+            "confidence": "medium"
+          },
+          {
+            "case_id": "FAULT-CRC-FLIP",
+            "hypothesis_ids": [
+              "PRE_CRC_INJECTION"
+            ],
+            "evidence_ids": [
+              "EV-OBSERVATION",
+              "EV-STATUS"
+            ],
+            "investigation_ids": [
+              "COMPARE_PRE_CRC_PAYLOAD"
+            ],
+            "regression_case_ids": [
+              "FAULT-CRC-FLIP",
+              "GOLD-QPSK"
+            ],
+            "confidence": "medium"
+          }
+        ]
+      }
+    }
+  ]
+}
