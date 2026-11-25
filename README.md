@@ -4,7 +4,7 @@
 
 NR-AI-QA is a software test project for selected 5G NR PHY functions. It runs NVIDIA pyAerial and cuPHY on an H20, checks outcomes with independent oracles, and uses a structured LLM workflow to prioritize and propose bounded tests. The Streamlit dashboard opens recorded evidence without a GPU or an API key.
 
-[All dashboard views](docs/stage4_results.md#replay-views) · [Architecture](docs/architecture.md) · [Interview demo](docs/interview_demo.md) · [Recorded evidence](data/replay/portfolio.json)
+[All dashboard views](docs/stage4_results.md#replay-views) · [Architecture](docs/architecture.md) · [Recorded evidence](data/replay/portfolio.json)
 
 ![NR-AI-QA Replay dashboard with recorded H20 results](docs/screenshots/overview.png)
 
